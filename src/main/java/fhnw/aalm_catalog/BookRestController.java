@@ -29,7 +29,6 @@ public class BookRestController {
         String[] querySplit = query.toUpperCase().split(",");
         List<Book> results = new ArrayList<>();
 
-        boolean check = true;
 
         for (Book b: this.bookRepository.findAll()) {
 
@@ -37,10 +36,10 @@ public class BookRestController {
 
             for (String keyword: querySplit) {
                 boolean matchesOne =
-                        b.getAuthor().toUpperCase().equals(keyword) ||
-                        b.getTitle().toUpperCase().equals(keyword) ||
-                        b.getDescription().toUpperCase().equals(keyword) ||
-                        b.getIsbn().equals(keyword);
+                        b.getAuthor().toUpperCase().contains(keyword) ||
+                        b.getTitle().toUpperCase().contains(keyword) ||
+                        b.getDescription().toUpperCase().contains(keyword) ||
+                        b.getIsbn().contains(keyword);
 
                 if (!matchesOne) {
                     matchesAll = false;
