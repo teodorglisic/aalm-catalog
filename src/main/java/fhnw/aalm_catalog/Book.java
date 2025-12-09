@@ -12,7 +12,16 @@ public class Book {
     private String description;
     private String author;
 
+    public Book() {
 
+    }
+
+    public Book(String isbn, String title, String description, String author) {
+        this.isbn = isbn;
+        this.title = title;
+        this.description = description;
+        this.author = author;
+    }
 
     public String getIsbn() {
         return isbn;
